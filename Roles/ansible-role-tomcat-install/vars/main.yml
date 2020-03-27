@@ -1,0 +1,4 @@
+---
+# vars file for installtomcat
+#---
+JAVA_HOME: /usr/lib/jvm/default-java

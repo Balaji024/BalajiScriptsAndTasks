@@ -1,0 +1,12 @@
+---
+- hosts: apiservers
+  #become_user: yes
+  remote_user: root
+  sudo: yes
+  vars:
+      tomcat_ver: 9.0.30
+  roles:
+          - ansible-role-tomcat-install
+          - mavenrole
+          - role-appserverdeploy
+          - backenddeploy

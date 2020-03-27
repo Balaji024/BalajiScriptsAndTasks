@@ -1,0 +1,3 @@
+---
+# tasks file for tom
+- include_tasks: "installing-tomcat-setup.yml"
