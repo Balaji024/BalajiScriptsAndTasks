@@ -1,0 +1,5 @@
+[webservers]
+172.25.4.204  ansible_ssh_user="ubuntu" ansible_ssh_private_key_file=/home/ubuntu/AccessKeys/prasad-aws-key.pem
+
+[appservers]
+172.25.4.62 ansible_user="ubuntu" ansible_ssh_private_key_file=/home/ubuntu/AccessKeys/prasad-aws-key.pem

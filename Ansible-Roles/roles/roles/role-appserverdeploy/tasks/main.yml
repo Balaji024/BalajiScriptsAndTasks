@@ -1,0 +1,3 @@
+---
+# tasks file for appserverdeploy
+- include_tasks: appserverdeploy.yml

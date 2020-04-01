@@ -1,0 +1,44 @@
+---
+- hosts: webservers
+  tags:
+  - webserver
+  become_user: root
+  become_method: sudo
+  vars:
+      tomcat_ver: 9.0.30
+  roles:
+
+          #- ansible-role-tomcat-install
+          #- mavenrole
+          #- role-appserverdeploy
+          #- apideploy
+          - webdeploy
+- hosts: appservers
+  tags:
+  - apiserver
+  become_user: root
+  become_method: sudo
+  vars:
+      tomcat_ver: 9.0.30
+  roles:
+
+          #- ansible-role-tomcat-install
+          #- mavenrole
+          #- role-appserverdeploy
+          - apideploy
+          #- webdeploy
+- hosts: appservers
+  tags:
+  - appserver
+  become_user: root
+  become_method: sudo
+  vars:
+      tomcat_ver: 9.0.30
+  roles:
+
+          #- ansible-role-tomcat-install
+          #- mavenrole
+          - role-appserverdeploy
+          # - apideploy
+          #- webdeploy
+          

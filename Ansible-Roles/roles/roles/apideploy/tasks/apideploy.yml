@@ -1,0 +1,8 @@
+---
+
+            - name:  Copying script to server
+              copy:
+               src: files/apideploy.sh 
+               dest: /home/ubuntu
+            - name: Executing the Script
+              command: sh /home/ubuntu/apideploy.sh

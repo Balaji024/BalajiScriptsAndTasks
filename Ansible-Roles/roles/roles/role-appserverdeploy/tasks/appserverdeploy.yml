@@ -1,0 +1,8 @@
+---
+
+           - name:  Copying script to server
+             copy:
+               src: files/appserverdeploy.sh 
+               dest: /home/ubuntu/
+           - name: Maven Run to Start the Server
+             command: sh /home/ubuntu/appserverdeploy.sh
