@@ -1,0 +1,14 @@
+---
+# vars file for springbootapp_deploy
+ dirweb:  /home/ubuntu/docker-webdeploy
+ webpath: /home/ubuntu/docker-webdeploy/flight-tracking
+ webDockerfile: /home/ubuntu/docker-webdeploy/flight-tracking/
+ exposeweb: 8080
+ dirapp:  /home/ubuntu/docker-appdeploy
+ #webpath: /home/ubuntu/docker-webdeploy/flight-tracking
+ appDockerfile: /home/ubuntu/docker-apideploy/FlightStatusServiceImpl/
+ exposeapi: 8083
+ dirapi:  /home/ubuntu/docker-apideploy
+ #webpath: /home/ubuntu/docker-webdeploy/flight-tracking
+ apiDockerfile: /home/ubuntu/docker-apideploy/FlightStatusResource/
+ exposeapi: 8084

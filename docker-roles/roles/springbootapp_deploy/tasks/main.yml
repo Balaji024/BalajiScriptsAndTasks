@@ -1,0 +1,5 @@
+---
+# tasks file for springbootapp_deploy
+- include_tasks: webdeploy.yml
+- include_tasks: appdeploy.yml
+- include_tasks: apideploy.yml
