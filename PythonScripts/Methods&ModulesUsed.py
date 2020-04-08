@@ -11,11 +11,11 @@ str()
 int()
 float()
 len()
-random.randint()
-copy.deepcopy()
-sys.exit()
+random.randint() # random integers
+copy.deepcopy() # copying file fully
+sys.exit() 
 sys.exc_info() # for excepion catching.  
-re.compile
+re.compile('r\') # searching regex strings
 var.group() # var denotes variable reference you are using where your regex string is stored
-pprint.pprint()
-pprint.pformat()
+pprint.pprint() # printing output in a formatted lines
+pprint.pformat() 
