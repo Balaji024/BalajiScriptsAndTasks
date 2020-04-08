@@ -3,6 +3,7 @@ import random
 import sys
 import copy
 import re
+import pprint
 
 # methods i have used so far
 print()
@@ -16,3 +17,5 @@ sys.exit()
 sys.exc_info() # for excepion catching.  
 re.compile
 var.group() # var denotes variable reference you are using where your regex string is stored
+pprint.pprint()
+pprint.pformat()
