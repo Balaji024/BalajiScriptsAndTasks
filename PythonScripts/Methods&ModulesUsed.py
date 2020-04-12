@@ -4,6 +4,12 @@ import sys
 import copy
 import re
 import pprint
+import pyperclip
+import shelve
+import shutil
+import os
+import send2trash
+
 
 # methods i have used so far
 print()
