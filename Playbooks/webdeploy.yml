@@ -1,0 +1,57 @@
+- hosts: localhost
+  #become_user: ubuntu
+  # become_method: sudo
+  sudo: yes
+  vars:
+          path:  /home/ubuntu/docker-webdeploy
+          webpath: /home/ubuntu/docker-webdeploy/flight-tracking
+          Dockerfile: /home/ubuntu/docker-webdeploy/flight-tracking/
+          expose: 8080
+  tasks:
+          - name: Removing a Directory
+            file:
+                    path: '{{ path }}'
+                    state: absent
+                    mode: 0775
+            when: path == true
+
+
+          - name: Creating a Directory
+            file:
+                    path: '{{ path }}'
+                    state: directory
+                    mode: 0775
+                    #      when: path == true
+
+          - name: Cloning Source Code Repo
+            git:
+                    repo: https://ansible-story@dev.azure.com/ansible-story/springbootapp_pune/_git/springbootapp_pune
+                    dest: '{{ path }}'
+                    version: branchcr7
+					
+		  - name: Maven Build to package war file
+            shell:
+               cmd: mvn clean package
+               chdir: '{{ webpath }}'
+               #   mode: 0775
+            #when: webpath == true
+
+
+
+          - name: Docker -  Building Image of the Application
+            shell:
+                cmd: docker build -t webapp:1.0 .
+                # when: Dockerfile == true
+                chdir: '{{ Dockerfile }}'
+
+          - name: Docker - Checking if any containers running on the target port ad stopping it.
+            shell: docker stop $(docker ps | grep '{{ port }}' | awk '{print $1}')
+              cmd: docker stop $(docker ps | grep '{{ port }}' | awk '{print $1}')
+            when:
+            ## debug:
+                    #       msg: "container on port '{{ port }}' stopped"
+
+          - name: Docker - Running the Container
+            shell:
+                    cmd: docker run -d -p '{{ port }}':'{{ expose }}' webapp:1.0
+                    #  debug:
